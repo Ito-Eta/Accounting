@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  balance: 9.99
+  savings: false
+  checking: false
+
+two:
+  name: MyString
+  balance: 9.99
+  savings: false
+  checking: false

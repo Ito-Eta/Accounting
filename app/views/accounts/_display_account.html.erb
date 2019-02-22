@@ -1,0 +1,18 @@
+<p>
+	<table>
+		<tr>
+			<th>Account Name</th>
+			<th>Current Balance</th>
+			<th>Account Type</th>
+			<th colspan="2"></th>
+		</tr>
+		<% @accounts.each do |account| %>
+			<tr>
+				<td><%= account.name %></td>
+				<td><%= account.balance %></td>
+				<td><%= account.account_type %></td>
+				<td><%= link_to 'Details', '/details' %></td>
+			</tr>
+			<% end %>
+	</table>
+</p>

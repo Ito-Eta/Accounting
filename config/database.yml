@@ -1,0 +1,14 @@
+default: &default
+  adapter: mysql2
+  username: root
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: blog_development
+
+test:
+  <<: *default
+  database: blog_test
+

@@ -1,0 +1,21 @@
+<h2><font color=red>INVALID EMAIL/PASSWORD COMBINATION</font></h2>
+
+<p>Please try login again below</p>
+
+<%= form_with scope: :session, url: login_path, local: true do |form| %>
+  <p>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </p>
+ 
+  <p>
+    <%= form.label :password %>
+    <%= form.password_field :encrypted_password %>
+  </p>
+ 
+  <p>
+    <%= form.submit("Login") %>
+  </p>
+<% end %>
+
+<%= link_to 'New Users register here!', '/register' %>

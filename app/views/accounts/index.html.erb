@@ -1,0 +1,8 @@
+<h1>Welcome, <%= @current_user.first_name %></h1>
+<p><a href="/new_account">Create a New Account</a></p>
+<% if @accounts.empty? == true %>
+	<%= render "no_account" %>
+<% else %>
+	<%= render "display_account" %>
+<% end %>
+<p><a href="/logout">Logout</a></p>
