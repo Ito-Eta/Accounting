@@ -8,11 +8,12 @@
 		</tr>
 		<% @accounts.each do |account| %>
 			<tr>
-				<td><%= account.name %></td>
-				<td><%= account.balance %></td>
-				<td><%= account.account_type %></td>
-				<td><%= link_to 'Details', '/details' %></td>
+				<td align="center"><%= account.name %></td>
+				<td align="center"><%= '$' + cents_to_dollars(account.balance).to_s %></td>
+				<td align="center"><%= account.account_type %></td>
+				<td><%= link_to 'Details', user_account_entries_path(@user.id, account.id) %></td>
+				<td><%= link_to 'Delete Account', user_account_path(@user, account), method: :delete %></td>
 			</tr>
-			<% end %>
+		<% end %>
 	</table>
 </p>

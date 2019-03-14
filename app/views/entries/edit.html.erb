@@ -1,0 +1,30 @@
+<h1>Edit Entry</h1>
+<%= form_with scope: :entry, url: user_account_entry_path(@user, @account, @entry.id), local: true, method: :patch do |form| %>
+<p> 
+	<%= form.label :date %><br>
+	<%= form.date_field :date, value: @entry.date %>
+<p>
+	<%= form.label :description %><br>
+	<%= form.text_field :description, value: @entry.description %>
+</p>
+<p>
+	<% if @entry.amount / @entry.amount == -1 %>
+		<%= form.radio_button :entry_type, 'Withdrawal', :checked => true %>
+		<%= form.label :entry_type_withdrawal, 'Withdrawal' %>
+		<%= form.radio_button :entry_type, 'Deposit' %>
+		<%= form.label :entry_type_deposit, 'Deposit' %>
+	<% else %>
+		<%= form.radio_button :entry_type, 'Withdrawal' %>
+		<%= form.label :entry_type_withdrawal, 'Withdrawal' %>
+		<%= form.radio_button :entry_type, 'Deposit', :checked => true %>
+		<%= form.label :entry_type_deposit, 'Deposit' %>
+	<% end %>		
+</p>
+<p>
+	<%= form.label :amount %><br>
+	<%= form.number_field :amount, :class => 'text_field', :step => 0.01, value: cents_to_dollars(@entry.amount) %>
+</p>
+<p>
+	<%= form.submit %>
+</p>
+<% end %>

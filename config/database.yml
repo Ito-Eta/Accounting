@@ -6,9 +6,9 @@ default: &default
 
 development:
   <<: *default
-  database: blog_development
+  database: accounting_development
 
 test:
   <<: *default
-  database: blog_test
+  database: accounting_test
 

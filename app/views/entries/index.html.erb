@@ -1,0 +1,22 @@
+<h1>Details for "<%= @account.name %>"</h1>
+<h3>Current Balance: $<%= cents_to_dollars(@account.balance) %></h3>
+<a href="/logout">Logout</a> | <a href="/accounts">Return to Accounts</a>
+<p><%= link_to 'Create a New Entry', new_user_account_entry_path(@user, @account) %></p>
+<p>
+	<table>
+		<tr>
+			<th colspan="3">Date</th>
+			<th colspan="3">Description</th>
+			<th colspan="3">Amount</th>
+			<th colspan="3"></th>
+		</tr>
+		<% @entries.each do |entry| %>
+			<tr>
+				<td colspan="3" align="center"><%= entry.date %></td>
+				<td colspan="3" align="center"><%= entry.description %></td>
+				<td colspan="3" align="center"><%= '$' + cents_to_dollars(entry.amount).to_s %></td>
+				<td><%= link_to 'Delete', user_account_entry_path(@user, @account, entry.id), method: :delete %></td>
+			</tr>
+		<% end %>
+	</table>
+</p>

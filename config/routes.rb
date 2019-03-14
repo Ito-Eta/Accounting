@@ -9,9 +9,14 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/accounts' => 'accounts#index'
   get '/new_account' => 'accounts#new'
+  get '/details' => 'entries#index'
+  get '/new_entry' => 'entries#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users
-    resources :accounts
+  resources :users do
+    resources :accounts do
+      resources :entries
+    end
+  end
 
   root 'welcome#index'
 end

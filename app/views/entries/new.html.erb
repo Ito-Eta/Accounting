@@ -1,0 +1,23 @@
+<h1>Create a New Entry</h1>
+<%= form_with scope: :entry, url: user_account_entries_path(@user, @account), local: true do |form| %>
+<p> 
+	<%= form.label :date %><br>
+	<%= form.date_field :date %>
+<p>
+	<%= form.label :description %><br>
+	<%= form.text_field :description %>
+</p>
+<p>
+	<%= form.radio_button :entry_type, 'Withdrawal', :checked => true %>
+	<%= form.label :entry_type_withdrawal, 'Withdrawal' %>
+	<%= form.radio_button :entry_type, 'Deposit' %>
+	<%= form.label :entry_type_deposit, 'Deposit' %>	
+</p>
+<p>
+	<%= form.label :amount %><br>
+	<%= form.number_field :amount, :class => 'text_field', :step => 0.01 %>
+</p>
+<p>
+	<%= form.submit %>
+</p>
+<% end %>

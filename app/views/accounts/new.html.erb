@@ -1,15 +1,15 @@
 <h1>Create a New Account</h1>
-<%= form_with model: [@user, @user.accounts.build], url: accounts_path, local: true do |form| %>
+<%= form_with model: [@user, @user.accounts.build], local: true do |form| %>
 <p>
 	<%= form.label :account_name %><br>
 	<%= form.text_field :name %>
 </p>
 <p>
 	<%= form.label :opening_balance %><br>
-	<%= form.text_field :balance %>
+	<%= form.number_field :balance, :class => 'text_field', :step => 0.01 %>
 </p>
 <p>
-	<%= form.radio_button :account_type, 'checking', :checked => true %>
+	<%= form.radio_button :account_type, 'Checking', :checked => true %>
 	<%= form.label :account_type_checking, 'Checking' %>
 	<%= form.radio_button :account_type, 'Savings' %>
 	<%= form.label :account_type_savings, 'Savings' %>	
